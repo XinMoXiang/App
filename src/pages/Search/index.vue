@@ -10,7 +10,7 @@
               <a href="#">全部结果</a>
             </li>
           </ul>
-          <ul class="fl sui-tag">
+          <ul class="fl sui-tag"   >
             <!-- 分类名字 -->
             <li class="with-x" v-if="searchParmas.categoryName">{{ searchParmas.categoryName }}<i
                 @click="removeCategoryName">x</i></li>
