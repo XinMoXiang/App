@@ -1,0 +1,254 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "trademarkList": [
+      { "tmId": 1, "tmName": "小米" },
+      { "tmId": 6, "tmName": "VIVO" },
+      { "tmId": 2, "tmName": "苹果" },
+      { "tmId": 3, "tmName": "华为" },
+      { "tmId": 22185, "tmName": "11" },
+      { "tmId": 4, "tmName": "尚硅谷" },
+      { "tmId": 5, "tmName": "OPPO" },
+      { "tmId": 27, "tmName": "戴尔" },
+      { "tmId": 22, "tmName": "长虹" },
+      { "tmId": 19575, "tmName": "赎罪" }
+    ],
+    "attrsList": [
+      {
+        "attrId": 106,
+        "attrValueList": ["安卓手机", "苹果手机"],
+        "attrName": "手机系统"
+      },
+      {
+        "attrId": 107,
+        "attrValueList": ["1200mAh到3000mAh", "1200mAh以下", "3000mAh以上"],
+        "attrName": "电池容量"
+      },
+      {
+        "attrId": 23,
+        "attrValueList": ["6G", "8G", "128G", "256G", "3G", "4G"],
+        "attrName": "运行内存"
+      },
+      {
+        "attrId": 37,
+        "attrValueList": ["Java", "JavaScript", "C#"],
+        "attrName": "分类"
+      },
+      {
+        "attrId": 24,
+        "attrValueList": ["1T", "256G", "64G", "128G", "32G"],
+        "attrName": "机身内存"
+      },
+      {
+        "attrId": 111,
+        "attrValueList": [
+          "5G骁龙768G",
+          "骁龙439",
+          "骁龙730G",
+          "骁龙845",
+          "麒麟990"
+        ],
+        "attrName": "CPU型号"
+      },
+      {
+        "attrId": 112,
+        "attrValueList": [
+          "6.0-6.24英寸",
+          "6.95英寸及以上",
+          " 6.75-6.84英寸",
+          "6.55-6.64英寸"
+        ],
+        "attrName": "屏幕尺寸"
+      },
+      {
+        "attrId": 8969,
+        "attrValueList": ["https://javdb008.com", "黑色", "green", "白色"],
+        "attrName": "颜色"
+      },
+      {
+        "attrId": 113,
+        "attrValueList": ["个位大佬不要乱删数据"],
+        "attrName": "跪求"
+      },
+      { "attrId": 5244, "attrValueList": ["zxc"], "attrName": "zxc" }
+    ],
+    "goodsList": [
+      {
+        "id": 4076,
+        "defaultImg": "http://47.93.148.192:8080/group1/M00/00/02/rBHu8l-rgJqARA19AAFuZ18W_ks439.jpg",
+        "title": "124",
+        "price": 999.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      },
+      {
+        "id": 3723,
+        "defaultImg": "http://47.93.148.192:8080/group1/M00/02/DA/rBHu8mGxO7mAE-3gAACWbB2wj-4610.jpg",
+        "title": "123",
+        "price": 5.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      },
+      {
+        "id": 4433,
+        "defaultImg": "http://47.93.148.192:8080/group1/M00/02/DB/rBHu8mGxPcKAZ_qwAAAaCuo69pQ498.jpg",
+        "title": " S10 Pro prpidf",
+        "price": 11111.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      },
+      {
+        "id": 4464,
+        "defaultImg": "http://47.93.148.192:8080/group1/M00/02/DB/rBHu8mGxPcCANXGrAAH0CTAPZ8s596.jpg",
+        "title": "11",
+        "price": 11.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      },
+      {
+        "id": 3992,
+        "defaultImg": "http://47.93.148.192:8080/group1/M00/09/01/rBHu8mPbuYeAKx47AAA3aFKsX6w43.webp",
+        "title": "123",
+        "price": 123.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      },
+      {
+        "id": 3889,
+        "defaultImg": "http://47.93.148.192:8080/group1/M00/09/64/rBHu8mQarweAStUjAAdCeNM-gbM645.jpg",
+        "title": "的撒旦",
+        "price": 123.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      },
+      {
+        "id": 4582,
+        "defaultImg": "http://47.93.148.192:8080/group1/M00/02/DA/rBHu8mGxPb-AQOTXAAAWgQNuXx0990.jpg",
+        "title": "123",
+        "price": 123.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      },
+      {
+        "id": 4591,
+        "defaultImg": "http://139.198.127.41:9000/sph/20230325/2.jpg",
+        "title": "111",
+        "price": 22222.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      },
+      {
+        "id": 5078,
+        "defaultImg": "http://47.93.148.192:8080/group1/M00/00/02/rBHu8l-rgfWAJllcAAEY0AkXL8M782.jpg",
+        "title": "iphone12",
+        "price": 5999.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      },
+      {
+        "id": 5079,
+        "defaultImg": "http://47.93.148.192:8080/group1/M00/00/02/rBHu8l-rgfWAbqkuAAENKBtJukQ551.jpg",
+        "title": "iPhone12",
+        "price": 5999.0,
+        "createTime": null,
+        "tmId": null,
+        "tmName": null,
+        "category1Id": null,
+        "category1Name": null,
+        "category2Id": null,
+        "category2Name": null,
+        "category3Id": null,
+        "category3Name": null,
+        "hotScore": 0,
+        "attrs": null
+      }
+    ],
+    "total": 77,
+    "pageSize": 10,
+    "pageNo": 1,
+    "totalPages": 8
+  },
+  "ok": true
+}

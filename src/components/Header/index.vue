@@ -33,7 +33,6 @@
       <div class="searchArea">
         <form action="###" class="searchForm">
           <input type="text" id="autocomplete" class="input-error input-xxlarge" v-model="keyword" />
-
           <button class="sui-btn btn-xlarge btn-danger" type="button" @click="goSearch">
             搜索
           </button>
@@ -63,11 +62,15 @@ export default {
       //2.模板字符串 `` 反字符串
       // this.$router.push({ path: `/search/${this.keyword}?k=${this.keyword.toUpperCase()}`}).catch(err => err);
       //3.对象传参(最常用)
-      this.$router.push({
-        name: "search",
-        params: { keyword: this.keyword },
-        query: { K: this.keyword.toUpperCase() }
-      })
+      if (this.$route.query) {
+        //如果有query参数，也需要传query参数
+        let location = {
+          name: "search",
+          params: { keyword: this.keyword || undefined }
+        };
+        location.query = this.$route.query;
+        this.$router.push(location);
+      }
       //console.log(this.$router  );
       /******************************/
       //路由跳转传参的时候，对象的写法可以是name，path形式，但需要住的是，path写法不能与parms参数一起使用
@@ -75,7 +78,13 @@ export default {
       //可以使用undefined解决parms参数传递空值或者不传值
       //路由组件可以传递props数据，且有三种写法（布尔，对象，函数）
     },
-  }
+  },
+  mounted() {
+    //通过全局事件总线清除关键字
+    this.$bus.$on("clear", () => {
+      this.keyword = "";
+    })
+  },
 }
 </script>
 

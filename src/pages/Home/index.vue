@@ -1,14 +1,13 @@
 <template>
   <div>
     <!-- 三级联动全局组件 已经注册为全局组件 不需要再引入 -->
-    <TypeNav/>
-    <ListContainer/>
-    <Recommend/>
-    <Rank/>
-    <Like/>
-    <Floor/>
-    <Floor/>
-    <Brand/>
+    <TypeNav />
+    <ListContainer />
+    <Recommend />
+    <Rank />
+    <Like />
+    <Floor v-for="(floor) in floorList" :key="floor.id" :list="floor" />
+    <Brand />
   </div>
 </template>
 
@@ -20,16 +19,27 @@ import Rank from '@/pages/Home/Rank';
 import Like from '@/pages/Home/Like';
 import Floor from '@/pages/Home/Floor';
 import Brand from '@/pages/Home/Brand';
+import { mapState } from 'vuex';
+
 export default {
-name:'',
-components:{
-  ListContainer,
-  Recommend,
-  Rank,
-  Like,
-  Floor,
-  Brand
-}
+  name: '',
+  components: {
+    ListContainer,
+    Recommend,
+    Rank,
+    Like,
+    Floor,
+    Brand
+  },
+  mounted() {
+    //派发action，获取floor组件
+    this.$store.dispatch('reqFloorList');
+  },
+  computed: {
+    ...mapState({
+      floorList: state => state.home.floorList
+    })
+  }
 }
 </script>
 

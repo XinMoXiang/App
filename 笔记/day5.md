@@ -101,14 +101,7 @@ nextTick官网解释:
 
 
 
-3.4组件间通信******面试必问的东西
-props:父子
-插槽:父子
-自定义事件:子父
-全局事件总线$bus:万能
-pubsub:万能
-Vuex:万能
-$ref:父子通信
+c
 3.5为什么在Floor组件的mounted中初始化SWiper实例轮播图可以使用.
 因为父组件的mounted发请求获取Floor组件，当父组件的mounted执行的时候。
 Floor组件结构可能没有完整，但是服务器的数据回来以后Floor组件结构就一定是完成的了

@@ -3,28 +3,7 @@
     <div class="sortList clearfix">
       <div class="center">
         <!--banner轮播-->
-        <div class="swiper-container" id="mySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="./images/banner1.jpg" />
-            </div>
-            <!-- <div class="swiper-slide">
-              <img src="./images/banner2.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/banner3.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/banner4.jpg" />
-            </div> -->
-          </div>
-          <!-- 如果需要分页器 -->
-          <div class="swiper-pagination"></div>
-
-          <!-- 如果需要导航按钮 -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
+        <Carousel :list="bannerList"/>
       </div>
       <div class="right">
         <div class="news">
@@ -110,9 +89,68 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+// //引入swiper包
+// import Swiper from 'swiper';
 export default {
+  mounted() {
+    //派发action：通过Vuex发起ajax请求，将数据储存当仓库里
+    this.$store.dispatch('getBannerList');
+  },
+  computed: {
+    ...mapState({
+      bannerList: state => state.home.bannerList
+    })
+  },
+  // watch: {//watch：监听已有的数据变化
+  //   //监听bannerList数据变化：由空数组变为有四个图片元素
+  //   bannerList: {
+  //     handler(newValue, oldValue) {
+  //       //通过watch监听bannerList属性的属性变化，当监听到bannerList数据后才会执行handler
+  //       this.$nextTick(() => {//nextTick() 可以在状态改变后立即使用，以等待 DOM 更新完成。你可以传递一个回调函数作为参数
+  //         var mySwiper = new Swiper(".swiper-container", {
+  //           loop: true, // 循环模式选项
+  //           // 垂直切换选项 默认水平
+  //           // direction: 'vertical', 
+  //           autoplay:true,
 
+  //           // 如果需要分页器
+  //           pagination: {
+  //             el: ".swiper-pagination",
+  //             clickable :true,
+  //           },
+
+  //           // 如果需要前进后退按钮
+  //           navigation: {
+  //             nextEl: ".swiper-button-next",
+  //             prevEl: ".swiper-button-prev",
+  //           },
+
+  //           // 如果需要滚动条
+  //           scrollbar: {
+  //             el: ".swiper-scrollbar",
+  //           },
+  //         });
+
+  //       })
+
+  //     }
+  //   }
+  // }
 }
+{/* <div class="swiper-container" ref="mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(carouse) in bannerList" :key="carouse.id">
+              <img :src="carouse.imgUrl" />
+            </div>
+          </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+
+          <!-- 如果需要导航按钮 -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div> */}
 </script>
 
 <style lang="less" scoped>
