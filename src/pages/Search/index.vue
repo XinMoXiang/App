@@ -51,7 +51,7 @@
               <li class="yui3-u-1-5" v-for="(goods) in goodsList" :key="goods.id">
                 <div class="list-wrap">
                   <div class="p-img">
-                    <a href="item.html" target="_blank"><img :src="goods.defaultImg" /></a>
+                    <router-link :to="`/detail/${goods.id}`"><img :src="goods.defaultImg" /></router-link>
                   </div>
                   <div class="price">
                     <strong>
@@ -102,7 +102,7 @@ export default {
         //搜索关键字
         "keyword": "",
         //排序:初始按综合降序排序(desc)
-        "order": "1:asc",
+        "order": "1:desc",
         //分页器：当前是第几页
         "pageNo": 1,
         //分页器：每页展示的数据

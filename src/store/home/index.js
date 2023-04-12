@@ -1,4 +1,4 @@
-import { reqCategoryList, reqGetBannerList,reqGetFloorList} from "@/api";
+import { reqCategoryList, reqGetBannerList, reqGetFloorList } from "@/api";
 //home模块的小仓库
 const state = {
   //state中的数据默认值不能乱写
@@ -7,18 +7,18 @@ const state = {
   //轮播图数据
   bannerList: [],
   //floor数据
-  floorList:[],
+  floorList: [],
 };
 const mutations = {
   CATEGORYLIST(state, categoryList) {
     state.categoryList = categoryList;
   },
-  GETBANNER(state,bannerList){
-    state.bannerList=bannerList;
+  GETBANNER(state, bannerList) {
+    state.bannerList = bannerList;
   },
-  GETFLOOR(state,floorList){
-    state.floorList=floorList;
-  }
+  GETFLOOR(state, floorList) {
+    state.floorList = floorList;
+  },
 };
 const actions = {
   //通过api里面的接口函数，向服务器发请求，获取服务器的数据
@@ -29,19 +29,19 @@ const actions = {
     }
   },
   //获取首页轮播图数据
-  async getBannerList({commit}) {
+  async getBannerList({ commit }) {
     let result = await reqGetBannerList();
-    if(result.code==200){
-      commit("GETBANNER",result.data)
+    if (result.code == 200) {
+      commit("GETBANNER", result.data);
     }
   },
   //获取foolr的数据
-  async reqFloorList({commit}){
-    let result=await reqGetFloorList();
-    if(result.code==200){
-      commit("GETFLOOR",result.data)
+  async reqFloorList({ commit }) {
+    let result = await reqGetFloorList();
+    if (result.code == 200) {
+      commit("GETFLOOR", result.data);
     }
-  }
+  },
 };
 const getters = {};
 export default {

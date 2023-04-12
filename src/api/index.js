@@ -24,3 +24,10 @@ export const reqGetSearchInfo = (parmas) => {
     data:parmas
   });
 };
+//获取产品详细信息（Detail）/api/item/{ skuId } GET
+export const reqGoodsInfo=(skuId)=>{
+  return requests({
+    url:`/item/${ skuId }`,
+    method:'get'
+  })
+}
