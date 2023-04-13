@@ -4,10 +4,17 @@ import Login from "@/pages/Login";
 import Resgister from "@/pages/Resgister";
 import Search from "@/pages/Search";
 import Detail from "@/pages/Detail";
+import AddCartSuccess from '@/pages/AddCartSuccess';
 
 //路由配置信息
 export default
 [
+  {
+    path: "/addcartsuccess",
+    component: AddCartSuccess,
+    name:'addcartsuccess',
+    meta: { show: true },
+  },
   {
     path: "/detail/:skuId",
     component: Detail,

@@ -373,17 +373,17 @@ export default {
       }
     },
     //加入购物车
-    async addShopcar(){
+    async addShopcar() {
       //向服务器发请求
       try {
-        await this.$store.dispatch('AddOrUpdateShopCart',{skuId:this.$route.params.skuId,skuNum:this.skuNum});
+        //成功则路由跳转(传递参数)
+        await this.$store.dispatch('AddOrUpdateShopCart', { skuId: this.$route.params.skuId, skuNum: this.skuNum });
+        this.$router.push({ name: 'addcartsuccess' })
       } catch (error) {
+        //失败给用户提示
         alert(error.message)
       }
-      //成功则路由跳转(传递参数)
-      //失败给用户提示
-
-  }
+    }
   }
 }
 </script>
