@@ -31,3 +31,10 @@ export const reqGoodsInfo=(skuId)=>{
     method:'get'
   })
 }
+//将产品添加到购物车  GET /api/cart/addToCart/{ skuId }/{ skuNum }
+export  const reqAddOrUpdateShopCart=(skuId,skuNum)=>{
+  return requests({
+    url:`/cart/addToCart/${ skuId }/${skuNum}`,
+    method:'post'
+  })
+}

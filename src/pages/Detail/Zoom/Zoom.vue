@@ -36,24 +36,24 @@ export default {
       let mask = this.$refs.mask;
       let big = this.$refs.big;
       //计算遮罩的左值以及顶部的值
-      let left = event.offsetX - mask.offsetWidth / 2
-      let top = event.offsetY - mask.offsetHeight / 2
+      let left = event.offsetX - mask.offsetWidth / 2;
+      let top = event.offsetY - mask.offsetHeight / 2;
       //判断方位超出的情况
       if (left < 0) {
-        left = 0
+        left = 0;
       } else if (left > mask.offsetWidth) {
-        left = 200
+        left = 200;
       }
       if (top < 0) {
-        top = 0
+        top = 0;
       } else if (top > mask.offsetHeight) {
-        top = 200
+        top = 200;
       }
       //将遮罩以及big图赋值定位  （此外big图为普通图的两倍大小 且方位为负值）
-      mask.style.left = left + 'px'
-      mask.style.top = top + 'px'
-      big.style.left = -2 * left + 'px'
-      big.style.top = -2 * top + 'px'
+      mask.style.left = left + 'px';
+      mask.style.top = top + 'px';
+      big.style.left = -2 * left + 'px';
+      big.style.top = -2 * top + 'px';
     }
   }
 }

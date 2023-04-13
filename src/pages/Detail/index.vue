@@ -74,12 +74,12 @@
             </div>
             <div class="cartWrap">
               <div class="controls">
-                <input autocomplete="off" class="itxt">
-                <a href="javascript:" class="plus">+</a>
-                <a href="javascript:" class="mins">-</a>
+                <input autocomplete="off" class="itxt" v-model="skuNum" @change="chageskuNum">
+                <a href="javascript:" class="plus" @click="skuNum++">+</a>
+                <a href="javascript:" class="mins" @click="skuNum > 1 ? skuNum-- : skuNum = 1">-</a>
               </div>
               <div class="add">
-                <a href="javascript:">加入购物车</a>
+                <a @click="addShopcar()">加入购物车</a>
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@
     </section>
 
     <!-- 内容详情页 -->
-    <!-- <section class="product-detail">
+    <section class="product-detail">
       <aside class="aside">
         <div class="tabWraped">
           <h4 class="active">相关分类</h4>
@@ -325,7 +325,7 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
   </div>
 </template>
 
@@ -336,17 +336,22 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'Detail',
+  data() {
+    return {
+      skuNum: 1,
+    }
+  },
   components: {
     ImageList,
     Zoom
   },
-  created() {
+  mounted() {
     this.$store.dispatch('getGoodInfo', this.$route.params.skuId)
   },
   computed: {
     ...mapGetters(['categoryView', 'skuInfo', 'spuSaleAttrList']),
     skuImageList() {
-      return this.skuInfo.skuImageList||[];
+      return this.skuInfo.skuImageList || [];
     }
   },
   methods: {
@@ -355,8 +360,30 @@ export default {
       arr.forEach(item => {
         item.isChecked = 0;
       });
-      saleAttrValue.isChecked=1;
-    }
+      saleAttrValue.isChecked = 1;
+    },
+    chageskuNum(event) {
+      let value = event.target.value * 1;
+      if (isNaN(value) || this.skuNum < 1) {
+        //输入字母，辅助，汉字等非数字时
+        this.skuNum = 1;
+      } else {
+        //输入小数时
+        this.skuNum = parseInt(value);
+      }
+    },
+    //加入购物车
+    async addShopcar(){
+      //向服务器发请求
+      try {
+        await this.$store.dispatch('AddOrUpdateShopCart',{skuId:this.$route.params.skuId,skuNum:this.skuNum});
+      } catch (error) {
+        alert(error.message)
+      }
+      //成功则路由跳转(传递参数)
+      //失败给用户提示
+
+  }
   }
 }
 </script>
