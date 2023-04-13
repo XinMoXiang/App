@@ -378,7 +378,11 @@ export default {
       try {
         //成功则路由跳转(传递参数)
         await this.$store.dispatch('AddOrUpdateShopCart', { skuId: this.$route.params.skuId, skuNum: this.skuNum });
-        this.$router.push({ name: 'addcartsuccess' })
+        //this.$router.push({ name: 'addcartsuccess',query:{skuInfo:this.skuInfo,skuNum:this.skuNum} });
+        //产品信息（skuinfo）通过会话存储（会话结束数据消失）
+        //本地存储和会话存储，一般都是存字符串
+       sessionStorage.setItem("SKUINFO",JSON.stringify(this.skuInfo))
+        this.$router.push({ name: 'addcartsuccess',query:{skuNum:this.skuNum} })
       } catch (error) {
         //失败给用户提示
         alert(error.message)
