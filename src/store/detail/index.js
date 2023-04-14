@@ -1,8 +1,12 @@
 import { reqGoodsInfo, reqAddOrUpdateShopCart } from "@/api";
+//临时游客身份
+import {getUUID} from "@/utils/uuid_token"
 //search模块的小仓库
 const state = {
   //仓库初始状态
   goodinfo: {},
+  //游客临时身份
+  uuid_token:getUUID(),
 };
 const mutations = {
   //修改state状态

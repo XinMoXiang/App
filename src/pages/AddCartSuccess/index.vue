@@ -1,7 +1,7 @@
 <template>
   <div class="cart-complete-wrap">
     <div class="cart-complete">
-      <h3><i class="sui-icon icon-pc-right"></i>商品已成功加入购物车！</h3>
+      <h3><i class="el-icon-success"></i>商品已成功加入购物车！</h3>
       <div class="goods">
         <div class="left-good">
           <div class="left-pic">
@@ -15,7 +15,7 @@
         </div>
         <div class="right-gocart">
           <router-link class="sui-btn btn-xlarge" :to="`/detail/${skuinfo.id}`">查看商品详情</router-link>
-          <a href="javascript:">去购物车结算 > </a>
+          <router-link to="/shopcart">去购物车结算</router-link>
         </div>
       </div>
     </div>

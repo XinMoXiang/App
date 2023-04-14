@@ -38,3 +38,10 @@ export  const reqAddOrUpdateShopCart=(skuId,skuNum)=>{
     method:'post'
   })
 }
+//获取购物车数据列表  GET /api/cart/carLsit
+export  const reqCartList=()=>{
+  return requests({
+    url:'/cart/cartList',
+    method:'get'
+  })
+}

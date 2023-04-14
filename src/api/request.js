@@ -4,6 +4,8 @@ import axios from "axios";
 import nprogress from "nprogress";
 //引入进度条样式 进度条颜色修改nprogress .bar {background}
 import "nprogress/nprogress.css";
+//引入store
+import store from "@/store"
 //start()进度条开始，done（）进度条结束
 //1.利用axios对象的方法create，去创建一个axios实例
 //2.request就是axios，只不过自己配置了一小
@@ -17,6 +19,9 @@ const requests = axios.create({
 //请求拦截器,在发请求之前，请求拦截器可以检测到，可以再请求发送到服务端之前做一些事情
 requests.interceptors.request.use((config) => {
   //config：配置对象，对象里面有一个配置很重要，header(请求头)
+  if(store.state.detail.uuid_token){
+    config.headers.userTempId=store.state.detail.uuid_token;
+  }
   nprogress.start();
   return config;
 });
