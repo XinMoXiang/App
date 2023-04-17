@@ -21,27 +21,41 @@ export const reqGetSearchInfo = (parmas) => {
   return requests({
     url: "/list",
     method: "post",
-    data:parmas
+    data: parmas,
   });
 };
 //获取产品详细信息（Detail）/api/item/{ skuId } GET
-export const reqGoodsInfo=(skuId)=>{
+export const reqGoodsInfo = (skuId) => {
   return requests({
-    url:`/item/${ skuId }`,
-    method:'get'
-  })
-}
+    url: `/item/${skuId}`,
+    method: "get",
+  });
+};
 //将产品添加到购物车  GET /api/cart/addToCart/{ skuId }/{ skuNum }
-export  const reqAddOrUpdateShopCart=(skuId,skuNum)=>{
+export const reqAddOrUpdateShopCart = (skuId, skuNum) => {
   return requests({
-    url:`/cart/addToCart/${ skuId }/${skuNum}`,
-    method:'post'
-  })
-}
+    url: `/cart/addToCart/${skuId}/${skuNum}`,
+    method: "post",
+  });
+};
 //获取购物车数据列表  GET /api/cart/carLsit
-export  const reqCartList=()=>{
+export const reqCartList = () => {
   return requests({
-    url:'/cart/cartList',
+    url: "/cart/cartList",
+    method: "get",
+  });
+};
+//删除购物车商品 /api/cart/deleteCart/{skuId} DELETE
+export const reqDeleteCreatById = (skuId) => {
+  return requests({
+    url: `/cart/deleteCart/${skuId}`,
+    method: "delete",
+  });
+};
+//8.切换商品选中状态 /api/cart/checkCart/{skuID}/{isChecked} GET
+export const reqUpdateCheckById=(skuId,isChecked)=>{
+  return requests({
+    url:`/cart/checkCart/${skuID}/${isChecked}`,
     method:'get'
   })
 }
