@@ -14,7 +14,7 @@
         <ul class="cart-list" v-for="(cart) in cartInfoList" :key="cart.id">
           <li class="cart-list-con1">
             <input type="checkbox" name="chk_list" :checked="cart
-              .isChecked == 1">
+              .isChecked == 1" @change="updateCheck(cart, $event)">
           </li>
           <li class="cart-list-con2">
             <img :src="cart.imgUrl">
@@ -70,6 +70,7 @@
 import { mapGetters } from 'vuex';
 import throttle from 'lodash/throttle';
 export default {
+
   name: 'ShopCart',
   mounted() {
     this.getData();
@@ -121,7 +122,21 @@ export default {
       } catch (error) {
         alert(error.message);
       }
-    }
+    },
+    //修改某一个商品的check值
+    //async 
+    async updateCheck(cart, event) {
+      try {
+        let isChecked = event.target.checked ? 1 : 0;
+        await this.$store.dispatch('updateCheckById', {
+          skuId: cart.skuId,
+          isChecked
+        });
+        this.getData();
+      } catch (error) {
+        alert(error.message);
+      }
+    },
   },
   computed: {
     ...mapGetters(['cartList']),

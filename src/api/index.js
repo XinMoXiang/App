@@ -52,10 +52,10 @@ export const reqDeleteCreatById = (skuId) => {
     method: "delete",
   });
 };
-//8.切换商品选中状态 /api/cart/checkCart/{skuID}/{isChecked} GET
-export const reqUpdateCheckById=(skuId,isChecked)=>{
+//切换商品选中状态 /api/cart/checkCart/{skuID}/{isChecked} GET
+export const reqUpdateCheckById = (skuId, isChecked) => {
   return requests({
-    url:`/cart/checkCart/${skuID}/${isChecked}`,
-    method:'get'
-  })
-}
+    url: `/cart/checkCart/${skuId}/${isChecked}`,
+    method: "get",
+  });
+};

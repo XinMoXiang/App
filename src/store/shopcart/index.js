@@ -29,7 +29,7 @@ const actions = {
     }
   },
   //修改购物车商品的选择状态
-  async updateCheckById({commit},skuId,isChecked){
+  async updateCheckById({commit},{skuId,isChecked}){
     let result=await reqUpdateCheckById(skuId,isChecked);
     if(result.code==200){
       return 'success'
