@@ -59,3 +59,26 @@ export const reqUpdateCheckById = (skuId, isChecked) => {
     method: "get",
   });
 };
+//获取验证码 /api/user/passport/sendCode/{phone} get
+export const reqGetCode = (phone) => {
+  return requests({
+    url: `/user/passport/sendCode/${phone} `,
+    method: "get",
+  });
+};
+//用户注册 /api/user/passport/register post
+export const reqUserRegister = (data) => {
+  return requests({
+    url: '/user/passport/register',
+    data:data,
+    method: "post",
+  });
+};
+//登录 /api/user/passport/login post
+export const reqUserLogin = (data) => {
+  return requests({
+    url: '/user/passport/login',
+    data:data,
+    method: "post",
+  });
+};
