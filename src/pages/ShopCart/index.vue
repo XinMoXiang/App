@@ -24,10 +24,10 @@
             <span class="price">{{ cart.skuPrice }}</span>
           </li>
           <li class="cart-list-con5">
-            <a href="javascript:void(0)" class="mins" @click="handler('mius', -1, cart)">-</a>
+            <a class="mins" @click="handler('mius', -1, cart)">-</a>
             <input autocomplete="off" type="text" minnum="1" class="itxt" :value="cart.skuNum"
               @change="handler('chage', $event.target.value * 1, cart)">
-            <a href="javascript:void(0)" class="plus" @click="handler('add', +1, cart)">+</a>
+            <a class="plus" @click="handler('add', +1, cart)">+</a>
           </li>
           <li class="cart-list-con6">
             <span class="sum">{{ cart.skuNum * cart.skuPrice }}</span>
@@ -42,11 +42,11 @@
     </div>
     <div class="cart-tool">
       <div class="select-all">
-        <input class="chooseAll" type="checkbox" :checked="isAllCheck">
+        <input class="chooseAll" type="checkbox" :checked="isAllCheck && cartInfoList.length > 0" @change="updateAllCartChecked" :disabled="cartInfoList.length==0">
         <span>全选</span>
       </div>
       <div class="option">
-        <a href="#none">删除选中的商品</a>
+        <a @click="deleteAllCheckCart">删除选中的商品</a>
         <a href="#none">移到我的关注</a>
         <a href="#none">清除下柜商品</a>
       </div>
@@ -137,6 +137,26 @@ export default {
         alert(error.message);
       }
     },
+    //删除全部选中的商品
+    async deleteAllCheckCart() {
+      try {
+        await this.$store.dispatch("deleteAllCheckCart");
+        this.getData();
+      } catch (error) {
+        alert(error.message);
+      }
+    },
+    //修改全选按钮的状态
+    async updateAllCartChecked(event) {
+      try {
+        let isChecked = event.target.checked ? "1" : "0";
+        await this.$store.dispatch("updateAllCartChecked", isChecked);
+        this.getData();
+      } catch (error) {
+        alert(err.message);
+      }
+
+    }
   },
   computed: {
     ...mapGetters(['cartList']),
