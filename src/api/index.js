@@ -82,3 +82,17 @@ export const reqUserLogin = (data) => {
     method: "post",
   });
 };
+//获取用户登录信息 /api/user/passport/auth/getUserInfo get 
+export const reqUserInfo = () => {
+  return requests({
+    url: 'user/passport/auth/getUserInfo',
+    method: "get",
+  });
+};
+//退出登录 /api/user/passport/logout get
+export const reqLoginOut = () => {
+  return requests({
+    url: '/user/passport/logout',
+    method: "get",
+  });
+};

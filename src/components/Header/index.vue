@@ -5,10 +5,16 @@
       <div class="container">
         <div class="loginList">
           <p>尚品汇欢迎您！</p>
-          <p>
+          <!-- 用户没有登录，显示登录注册 -->
+          <p v-if="!userName">
             <span>请</span>
             <router-link to="/login">登录</router-link>
             <router-link to="/resgister" class="register">免费注册</router-link>
+          </p>
+          <!-- 用户登录后，显示用户信息 -->
+          <p v-else>
+            <span>{{ userName }}</span>
+            <a class="register" @click="loginout">退出登录</a>
           </p>
         </div>
         <div class="typeList">
@@ -51,9 +57,8 @@ export default {
     }
   },
   methods: {
-
+    //搜索（search）按钮的回调函数,需要向search路由进行跳转
     goSearch() {
-      //搜索（search）按钮的回调函数,需要向search路由进行跳转
       //多次点击搜索报错 .catch(err => err)
       //this.$router.push({path:'/search'}).catch(err => err);
       //路由传参
@@ -78,6 +83,16 @@ export default {
       //可以使用undefined解决parms参数传递空值或者不传值
       //路由组件可以传递props数据，且有三种写法（布尔，对象，函数）
     },
+    //退出登录
+    async loginout() {
+      try {
+        await this.$store.dispatch("LoginOut");
+        this.$router.push("/home");
+      } catch (error) {
+        alert(error.message)
+      }
+
+    },
   },
   mounted() {
     //通过全局事件总线清除关键字
@@ -85,6 +100,11 @@ export default {
       this.keyword = "";
     })
   },
+  computed: {
+    userName() {
+      return this.$store.state.user.userInfo.name;
+    }
+  }
 }
 </script>
 

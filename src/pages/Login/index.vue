@@ -21,7 +21,7 @@
               </div>
               <div class="input-text clearFix">
                 <span class="pwd"></span>
-                <input type="text" placeholder="请输入密码" v-model="password">
+                <input type="password" placeholder="请输入密码" v-model="password">
               </div>
               <div class="setting clearFix">
                 <label class="checkbox inline">
@@ -75,18 +75,19 @@ export default {
       //收集表单数据--密码
       password: '',
     }
-  }, 
+  },
   methods: {
-    async userLogin(){
-      const{phone,password}=this;
-      try {
-        if(phone&&password){
-        await this.$store.dispatch('userLogin',{phone,password});
+    //用户登录
+    async userLogin() {
+      const { phone, password } = this;
+      if (phone && password) {
+        try {
+          await this.$store.dispatch('userLogin', { phone, password });
+          this.$router.push('/home')
+        } catch (error) {
+          console.log(error.message)
+        }
       }
-      } catch (error) {
-        
-      }
-      
     }
   }
 }

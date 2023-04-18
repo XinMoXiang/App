@@ -6,6 +6,10 @@ import VueRouter from "vue-router";
 //引入路由配置
 import routes from "./routes";
 
+//引入store
+import store from "@/store";
+import user from "@/store/user";
+
 //使用插件
 Vue.use(VueRouter);
 
@@ -44,10 +48,46 @@ VueRouter.prototype.replace = function (location, resolve, reject) {
 };
 
 //配置路由
-export default new VueRouter({
+let router = new VueRouter({
   //配置路由
   routes,
   scrollBehavior() {
     return { y: 0 };
   },
 });
+
+//全局守卫，前置守卫
+router.beforeEach(async (to, from, next) => {
+  //to：即将跳转的，
+  //from：将要离开的，
+  //next：调用方法，才能离开 next（）放行 next（'/'）放行到指定的路由
+  //获取用户的登录token
+  let token = store.state.user.token;
+  //用户信息
+  let name = store.state.user.userInfo.name;
+  //用户登录
+  if (token) {
+    //用户登陆后只能去除了登录意外的页面
+    if (to.path == "/login") {
+      next("/home");
+    } else {
+      //用户名已有
+      if (name) {
+        next();
+      } else {
+        try {
+          //派发用户信息action
+          await store.dispatch("getUserInfo");
+          next();
+        } catch (error) {
+          store.dispatch("LoginOut");
+          next("/login");
+        }
+      }
+    }
+  } else {
+    next();
+  }
+});
+
+export default router;
