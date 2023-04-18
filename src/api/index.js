@@ -69,30 +69,44 @@ export const reqGetCode = (phone) => {
 //用户注册 /api/user/passport/register post
 export const reqUserRegister = (data) => {
   return requests({
-    url: '/user/passport/register',
-    data:data,
+    url: "/user/passport/register",
+    data: data,
     method: "post",
   });
 };
 //登录 /api/user/passport/login post
 export const reqUserLogin = (data) => {
   return requests({
-    url: '/user/passport/login',
-    data:data,
+    url: "/user/passport/login",
+    data: data,
     method: "post",
   });
 };
-//获取用户登录信息 /api/user/passport/auth/getUserInfo get 
+//获取用户登录信息 /api/user/passport/auth/getUserInfo get
 export const reqUserInfo = () => {
   return requests({
-    url: 'user/passport/auth/getUserInfo',
+    url: "user/passport/auth/getUserInfo",
     method: "get",
   });
 };
 //退出登录 /api/user/passport/logout get
 export const reqLoginOut = () => {
   return requests({
-    url: '/user/passport/logout',
+    url: "/user/passport/logout",
+    method: "get",
+  });
+};
+//获取用户地址信息 /api/user/userAddress/auth/findUserAddressList get
+export const reqAddressInfo = () => {
+  return requests({
+    url: "/user/userAddress/auth/findUserAddressList",
+    method: "get",
+  });
+};
+//获取订单交易页信息 /api/order/auth/trade get
+export const reqOrderInfo = () => {
+  return requests({
+    url: "/order/auth/trade",
     method: "get",
   });
 };
