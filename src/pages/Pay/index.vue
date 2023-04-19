@@ -65,7 +65,7 @@
         <div class="hr"></div>
 
         <div class="submit">
-          <a class="btn">立即支付</a>
+          <a class="btn" @click="open">立即支付</a>
         </div>
         <div class="otherpay">
           <div class="step-tit">
@@ -82,11 +82,16 @@
 </template>
 
 <script>
+import QRCode from 'qrcode'
+import { done } from 'nprogress';
 export default {
   name: 'Pay',
   data() {
     return {
       payInfo: {},
+      timer: null,
+      //支付状态码
+      code: '',
     }
   },
   computed: {
@@ -105,7 +110,63 @@ export default {
       } else {
 
       }
-    }
+    },
+    async open() {
+      //生成二维码
+      let url = await QRCode.toDataURL(this.payInfo.codeUrl);
+      this.$alert(`<img src=${url} />`, '请使用微信支付', {
+        dangerouslyUseHTMLString: true,
+        //居中设置
+        center: true,
+        //显示取消按钮
+        showCancelButton: true,
+        //取消按钮文本
+        cancelButtonText: "支付遇见问题",
+        //确认按钮文本
+        confirmButtonText: "支付成功",
+        showClose: false,
+        //关闭弹出框的设置
+        beforeClose: (type, instance, done) => {
+          if (type == 'cancel') {
+            alert('请联系管理员');
+            //清除计时器
+            clearInterval(this.timer);
+            this.timer = null;
+            //关闭弹出框
+            done();
+          } else {
+            //if (result.code == 200) {
+            //清除计时器
+            clearInterval(this.timer);
+            this.timer = null;
+            //关闭弹出框
+            done();
+            //跳转到下一路由
+            this.$router.push('/paysuccess')
+            //}
+          }
+        },
+      }).then(() => {
+
+      });
+      //用计时器向服务器询问是否支付成功
+      if (!this.timer) {
+        this.timer = setInterval(async () => {
+          let result = await this.$API.reqPayStatus(this.orderId);
+          if (result.code == 200) {
+            //清除计时器
+            clearInterval(this.timer);
+            this.timer = null;
+            //保存支付状态码
+            this.code = result.code;
+            //关闭messagebox
+            this.$message.close();
+            //跳转到下一路由
+            this.$router.push('/paysuccess')
+          }
+        }, 1000)
+      }
+    },
   }
 }
 </script>

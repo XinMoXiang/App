@@ -8,7 +8,7 @@
             <img :src="skuinfo.skuDefaultImg">
           </div>
           <div class="right-info">
-            <p class="title">{{ skuinfo.skuName }}}</p>
+            <p class="title">{{ skuinfo.skuName }}</p>
             <p class="attr">{{ skuinfo.skuDesc }} 数量：<span style="font-weight: bolder;color: red;">{{ $route.query.skuNum
             }}</span></p>
           </div>

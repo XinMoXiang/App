@@ -125,3 +125,11 @@ export const reqPayInfo = (orderId) => {
     method: "get",
   });
 };
+//查询支付订单状态 /api/payment/weixin/queryPayStatus/{orderId} get
+export const reqPayStatus = (orderId) => {
+  return requests({
+    url: `/payment/weixin/queryPayStatus/${orderId}`,
+    method: "get",
+  });
+};
+//支付成功信息

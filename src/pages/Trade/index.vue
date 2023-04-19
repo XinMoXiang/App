@@ -136,7 +136,6 @@ export default {
       //提交订单
       let result = await this.$API.reqSubmitOrder({ tradeNo, data });
       if (result.code == 200) {
-        console.log(result);
         //提交订单成功，保存result.data(订单号)
         this.orderId = result.data;
         this.$router.push(`/pay?orderId=${this.orderId}`)

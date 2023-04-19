@@ -21,13 +21,21 @@ import store from '@/store';
 import '@/mock/mockServe'
 //引入swiper
 import 'swiper/css/swiper.css'
-//引入element-ui
-import 'element-ui/lib/theme-chalk/index.css'
+//引入element-ui (全局引入)
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
+import {MessageBox} from 'element-ui';
 
+//使用Element-UI
+//Vue.use(ElementUI);
+
+Vue.prototype.$msgbox = MessageBox;
+Vue.prototype.$alert = MessageBox.alert;
 
 //统一接口的api文件请求
 import * as API from '@/api';
 new Vue({
+  //el: '#app',
   render: h => h(App),
   //全局事件总线，$bus配置
   beforeCreate(){
