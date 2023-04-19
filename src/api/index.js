@@ -110,3 +110,18 @@ export const reqOrderInfo = () => {
     method: "get",
   });
 };
+//提交订单 /api/order/auth/submitOrder?tradeNo={tradeNo} post
+export const reqSubmitOrder = ({tradeNo,data}) => {
+  return requests({
+    url: `/order/auth/submitOrder?tradeNo=${tradeNo}`,
+    data:data,
+    method: "post",
+  });
+};
+//获取订单支付信息 /api/payment/weixin/createNative/{orderId} get
+export const reqPayInfo = (orderId) => {
+  return requests({
+    url: `/payment/weixin/createNative/${orderId}`,
+    method: "get",
+  });
+};

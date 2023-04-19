@@ -52,7 +52,7 @@
       </div>
       <div class="money-box">
         <div class="chosed">已选择
-          <span>0</span>件商品
+          <span>{{cartInfoList.length}}</span>种商品
         </div>
         <div class="sumprice">
           <em>总价（不含运费） ：</em>
@@ -70,7 +70,6 @@
 import { mapGetters } from 'vuex';
 import throttle from 'lodash/throttle';
 export default {
-
   name: 'ShopCart',
   mounted() {
     this.getData();

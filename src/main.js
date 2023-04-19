@@ -25,11 +25,14 @@ import 'swiper/css/swiper.css'
 import 'element-ui/lib/theme-chalk/index.css'
 
 
+//统一接口的api文件请求
+import * as API from '@/api';
 new Vue({
   render: h => h(App),
   //全局事件总线，$bus配置
   beforeCreate(){
     Vue.prototype.$bus=this;
+    Vue.prototype.$API=API;
   },
   //注册路由:键值对写法 ES6新语法省略值
   //注册路由 当这里书写router的时候，组件身上都有$route,$router
