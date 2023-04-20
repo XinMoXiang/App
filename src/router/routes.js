@@ -29,7 +29,8 @@ export default [
       {
         path: "grouporder",
         component: groupOrder,
-      }, {
+      },
+      {
         path: "/center",
         redirect: "/center/myorder",
       },
@@ -44,11 +45,26 @@ export default [
     path: "/pay",
     component: Pay,
     meta: { show: true },
+    beforeEnter: (to, from, next) => {
+      if (from.path == "/trade" || from.path == "/") {
+        next();
+      } else {
+        next(false);
+      }
+    },
   },
   {
     path: "/trade",
     component: Trade,
     meta: { show: true },
+    //路由独享守卫
+    beforeEnter: (to, from, next) => {
+      if (from.path == "/shopcart" || from.path == "/") {
+        next();
+      } else {
+        next(false);
+      }
+    },
   },
   {
     path: "/shopcart",

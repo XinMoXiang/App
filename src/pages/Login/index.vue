@@ -83,7 +83,9 @@ export default {
       if (phone && password) {
         try {
           await this.$store.dispatch('userLogin', { phone, password });
-          this.$router.push('/home')
+          //登录的路由组件
+          let toPath=this.$route.query.redirect||'/'
+          this.$router.push(toPath)
         } catch (error) {
           console.log(error.message)
         }
