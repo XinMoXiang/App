@@ -91,7 +91,7 @@ export default {
 
     &.active {
       cursor: not-allowed;
-      background: rgb(218, 242, 5);
+      background: rgb(242, 5, 124);
       color: #fff;
     }
   }

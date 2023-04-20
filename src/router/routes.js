@@ -1,23 +1,39 @@
-//引入路由组件
+//引入一级路由组件
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Resgister from "@/pages/Resgister";
 import Search from "@/pages/Search";
 import Detail from "@/pages/Detail";
-import AddCartSuccess from '@/pages/AddCartSuccess';
-import ShopCart from '@/pages/ShopCart';
-import Trade from '@/pages/Trade';
-import Pay from '@/pages/Pay';
-import PaySuccess from '@/pages/PaySuccess';
-import Center from '@/pages/Center';
+import AddCartSuccess from "@/pages/AddCartSuccess";
+import ShopCart from "@/pages/ShopCart";
+import Trade from "@/pages/Trade";
+import Pay from "@/pages/Pay";
+import PaySuccess from "@/pages/PaySuccess";
+import Center from "@/pages/Center";
+
+//引入一级路由组件
+import myOrder from "@/pages/Center/myOrder";
+import groupOrder from "@/pages/Center/groupOrder";
 
 //路由配置信息
-export default
-[
+export default [
   {
     path: "/center",
     component: Center,
     meta: { show: true },
+    children: [
+      {
+        path: "myorder",
+        component: myOrder,
+      },
+      {
+        path: "grouporder",
+        component: groupOrder,
+      }, {
+        path: "/center",
+        redirect: "/center/myorder",
+      },
+    ],
   },
   {
     path: "/paysuccess",
@@ -42,7 +58,7 @@ export default
   {
     path: "/addcartsuccess",
     component: AddCartSuccess,
-    name:'addcartsuccess',
+    name: "addcartsuccess",
     meta: { show: true },
   },
   {
@@ -83,4 +99,4 @@ export default
     path: "*",
     redirect: "/home",
   },
-]
+];

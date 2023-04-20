@@ -132,4 +132,10 @@ export const reqPayStatus = (orderId) => {
     method: "get",
   });
 };
-//支付成功信息
+//获取我的订单列表 /api/order/auth/{page}/{limit} get
+export const reqMyOrderList = ({page,limit}) => {
+  return requests({
+    url: `/order/auth/${page}/${limit}`,
+    method: "get",
+  });
+};
