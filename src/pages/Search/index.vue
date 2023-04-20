@@ -127,15 +127,19 @@ export default {
   },
   computed: {
     ...mapGetters(['goodsList']),
+    //综合
     isOne() {
       return this.searchParmas.order.indexOf('1') != -1
     },
+    //价格
     isTwo() {
       return this.searchParmas.order.indexOf('2') != -1
     },
+    //升序
     isAsc() {
       return this.searchParmas.order.indexOf('asc') != -1
     },
+    //降序
     isDesc() {
       return this.searchParmas.order.indexOf('desc') != -1
     },

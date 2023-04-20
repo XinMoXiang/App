@@ -1,5 +1,5 @@
 //引入一级路由组件
-import Home from "@/pages/Home";
+//import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Resgister from "@/pages/Resgister";
 import Search from "@/pages/Search";
@@ -14,6 +14,8 @@ import Center from "@/pages/Center";
 //引入一级路由组件
 import myOrder from "@/pages/Center/myOrder";
 import groupOrder from "@/pages/Center/groupOrder";
+
+const foo=()=>import('@/pages/Home')
 
 //路由配置信息
 export default [
@@ -84,7 +86,7 @@ export default [
   },
   {
     path: "/home",
-    component: Home,
+    component: foo,
     meta: { show: true },
   },
   {
